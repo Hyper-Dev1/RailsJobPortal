@@ -1,0 +1,39 @@
+<%= form_with(model: @job, url: @job.new_record? ? admin_jobs_path : admin_job_path(@job), local: true, class: "job-form") do |form| %>
+  <% if @job.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% @job.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mb-3">
+    <%= form.label :title, 'Job Title', class: 'form-label' %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :company, 'Company', class: 'form-label' %>
+    <%= form.text_field :company_name, value: current_company.name, disabled: true, class: 'form-control' %>
+    <%= form.hidden_field :company_id, value: current_company.id %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :location, 'Location', class: 'form-label' %>
+    <%= form.text_field :location, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :salary, 'Salary', class: 'form-label' %>
+    <%= form.text_field :salary, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :description, 'Description', class: 'form-label' %>
+    <%= form.text_area :description, class: 'form-control', rows: 5 %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :timeStatus, 'Job Type', class: 'form-label' %>
+    <%= form.select :timeStatus, [['Full-Time', 'Full-Time'], ['Part-Time', 'Part-Time']], { prompt: 'Select Job Type' }, class: 'form-control' %>
+  </div>
+  <div class="form-actions">
+    <%= form.submit 'Save Job', class: 'btn btn-success btn-block' %>
+  </div>
+<% end %>

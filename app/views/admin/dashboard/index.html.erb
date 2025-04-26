@@ -1,0 +1,81 @@
+<div class="container">
+  <h2 class="mb-4">Welcome, <%= @company.name %>!</h2>
+  <!-- Company Overview -->
+  <div class="card mb-4">
+    <div class="card-header">Company Overview</div>
+    <div class="card-body">
+      <p><strong>Name:</strong> <%= @company.name %></p>
+      <p><strong>Email:</strong> <%= @company.email %></p>
+      <p><strong>Website:</strong> <%= @company.website %></p>
+      <p><strong>Contact Person:</strong> <%= @company.contactPerson %></p>
+      <p><strong>Phone Number:</strong> <%= @company.phoneNumber %></p>
+    </div>
+  </div>
+  <!-- Job Listings -->
+  <div class="card mb-4">
+    <div class="card-header">Active Job Listings</div>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Job Title</th>
+            <th>Location</th>
+            <th>Salary</th>
+            <th>Time Status</th>
+            <th>Posted On</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @jobs.each do |job| %>
+            <tr>
+              <td><%= job.title %></td>
+              <td><%= job.location %></td>
+              <td><%= job.salary %></td>
+              <td><%= job.timeStatus %></td>
+              <td><%= job.created_at.strftime("%b %d, %Y") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Applications -->
+  <div class="card mb-4">
+    <div class="card-header">Recent Applications</div>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Applicant</th>
+            <th>Job Title</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @applications.each do |application| %>
+            <tr>
+              <td><%= application.name %></td>
+              <td><%= application.job.title %></td>
+              <td><%= application.phone_number %></td>
+              <td><%= application.created_at.strftime("%b %d, %Y") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Recent Activity -->
+  <div class="card">
+    <div class="card-header">Recent Activity</div>
+    <div class="card-body">
+      <ul>
+        <% @recent_activity.each do |job| %>
+          <li>
+            <strong><%= job.title %></strong> was posted on <%= job.created_at.strftime("%b %d, %Y") %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

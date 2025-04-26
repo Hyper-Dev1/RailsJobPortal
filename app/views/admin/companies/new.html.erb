@@ -1,0 +1,25 @@
+<h2>New Company</h2>
+<%= form_with model: @company, url: admin_companies_path, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :website %>
+    <%= f.text_field :website, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :contactPerson %>
+    <%= f.text_field :contactPerson, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :phoneNumber %>
+    <%= f.text_field :phoneNumber, class: 'form-control' %>
+  </div>
+  <%= f.submit 'Create Company', class: 'btn btn-success' %>
+<% end %>
+<%= link_to 'Back', admin_companies_path, class: 'btn btn-secondary mt-3' %>

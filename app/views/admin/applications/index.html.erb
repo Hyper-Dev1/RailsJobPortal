@@ -1,0 +1,25 @@
+<h2>Applications</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Job Title</th>
+      <th>Company Name</th>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @applications.each do |application| %>
+      <tr>
+        <td><%= application.job.title %></td>
+        <td><%= application.company.name %></td>
+        <td><%= application.name %></td>
+        <td><%= application.email %></td>
+        <td>
+          <%= link_to 'Delete', admin_application_path(application), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

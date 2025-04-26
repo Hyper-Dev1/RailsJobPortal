@@ -1,0 +1,29 @@
+<h2>Companies</h2>
+<%= link_to 'New Company', new_admin_company_path, class: 'btn btn-primary mb-3' %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Website</th>
+      <th>Contact Person</th>
+      <th>Phone Number</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.name %></td>
+        <td><%= company.email %></td>
+        <td><%= company.website %></td>
+        <td><%= company.contactPerson %></td>
+        <td><%= company.phoneNumber %></td>
+        <td>
+          <%= link_to 'Edit', edit_admin_company_path(company), class: 'btn btn-warning btn-sm' %>
+          <%= link_to 'Delete', admin_company_path(company), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

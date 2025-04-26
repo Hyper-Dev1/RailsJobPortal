@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Job Portal" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="data:,">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%# Stylesheets for Backend (Rails Views) %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "devise", media: "all" %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>
