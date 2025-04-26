@@ -56,7 +56,7 @@ group :development do
   gem "web-console"
 end
 
-gem 'mongoid', '~> 8.0'
+gem 'mongoid', '~> 9.0'
 gem 'devise'
 gem 'jwt'
 gem 'rack-cors'
